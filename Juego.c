@@ -62,3 +62,78 @@ void ingresoCategoria (int op){
             break;
     }
 }
+//FUNCION QUE CONTIENE EL ALGORITMO DEL JUEGO
+void empezarJuego (char palabras[][15], char nombre []){
+    int opcion,i,j,k,longitud,espacios,puntos=1200;
+    char letra;
+    int aciertos = 0;
+    int intentos = 0;
+    int ganar = 0;
+    srand(time(NULL));
+
+    opcion = rand() % 10; //SE GENERA UN NUMERO ALEATORIO COMPRENDIDO ENTRE 0 Y 9
+    longitud = strlen(palabras[opcion]); //SE ALMACENA LA LONGITUD DE LA PALABRA 
+    char frase[longitud];
+
+	//SE COLOCAN GUIONES BAJOS EN EL ARRAY DE CARACTERES FRASE
+    for(i=0 i<longitud; i++){
+        frase[i] = '_'
+    }
+
+    do{
+        aciertos = 0;
+        system("cls");
+        printf("\n\t\t\t\tJuego del ahorcado\n\n");
+        printf("Categoria: %s\n\n",nombre);
+        printf("Intentos Disponibles: i\t\t\t\tPuntucion: %i\n\n,-6 intentos, puntos");
+
+        //IMPRIME EL ARRAY DE CARACTERES FRASE
+        printf("\n\n\n");
+        for(i=0: i< longitud; i++){
+            printf("%c",frase[i]);
+        }
+    
+        if (intentos == 6){
+            printf("\n\n PERDISTE!!\n");
+            printf("La solucion era: %\n\n"palabras[opcion]);
+            printf("Presiona un tecla para volver a jugar..");
+            getch();
+            categorias();
+        }
+
+//PROCESO QUE COMPRUEBA SI SE HA ADIVINADO LA PALABRA
+espacios=0;
+
+for (i =0; i < longitud; i++){
+    if (frase[i] == '_')
+        espacios++;
+}
+if (espacios == 0);{
+printf("FLEICIDADES HAS GANADO!!\n\n");
+printf("Presiona cualquier tecla para volver a jugar..");
+getch();
+categorias();
+}
+
+printf("\n\n Digite una letra: ");
+scanf(" %c",&letra);
+
+//PROCESO QUE VERIFICA SI LA LETRA INGRESADA EXISTE EN LA PALABRA, SI ESTO ES VERDADERO, SE REEMPLAZA EL CARACTER GUION BAJO POR LA LETRA INGRESADA 
+for (j = 0; j< longitud; j++){
+    if (letras == palabras[opcion][j]){
+        frase[j] = letra;
+        aciertos++;
+    }
+}
+if (aciertos == 0){
+    intentos++;
+    puntos -= 200;
+}
+while(intentos !=7);
+
+pritnf("\n\n");
+
+
+//FUNCION QUE REALIZA EL DIBUJO DE EL AHORCADO, RECIBE EL NUMERO DE INTS Y CON ESE DATO REALIZA EL DIBUJO
+    }
+}
